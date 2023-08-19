@@ -220,6 +220,7 @@ abstract class SessionWithLogin extends Session
           ->setControlAttributes(array('id'           => 'username',
                                        'name'         => 'username',
                                        'placeholder'  => $placeholder,
+                                       'value'        => 'qwv',
                                        'required'     => true,
                                        'autofocus'    => true,
                                        'autocomplete' => 'username'));

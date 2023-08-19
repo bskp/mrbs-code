@@ -2565,6 +2565,10 @@ function get_field_entry_input($params)
     $field->setControlAttribute('disabled', true);
     $field->addHiddenInput($params['name'], $params['value']);
   }
+  if (!empty($params['placeholder']))
+  {
+    $field->setControlAttribute('placeholder', $params['placeholder']);
+  }
 
   switch ($class)
   {

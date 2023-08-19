@@ -9,7 +9,7 @@
 // This file is PHP code. Treat it as such.
 
 // Used in style.inc
-$vocab["mrbs"]               = "Raumbuchungssystem";
+$vocab["mrbs"]               = "Reservationen";
 $vocab["mrbs_abbr"]          = "MRBS";
 
 // Used in functions.inc
@@ -56,12 +56,12 @@ $vocab["viewmonth"]          = "Zeige Monat";
 $vocab["ppreview"]           = "Druckansicht";
 
 // Used in edit_entry.php
-$vocab["addentry"]           = "Eintrag hinzufügen";
-$vocab["editentry"]          = "Eintrag ändern";
-$vocab["copyentry"]          = "Eintrag kopieren";
+$vocab["addentry"]           = "Reservation erstellen";
+$vocab["editentry"]          = "Reservation ändern";
+$vocab["copyentry"]          = "Reservation kopieren";
 $vocab["editseries"]         = "Serienbuchung ändern";
 $vocab["copyseries"]         = "Serienbuchung kopieren";
-$vocab["namebooker"]         = "Kurzbeschreibung ";
+$vocab["namebooker"]         = "Dein Name";
 $vocab["fulldescription"]    = "Vollständige Beschreibung";
 $vocab["date"]               = "Tag";
 $vocab["start"]              = "Anfang";
