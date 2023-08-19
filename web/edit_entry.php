@@ -123,7 +123,6 @@ function get_field_name($value, $disabled=false)
   $params = array('label'    => get_vocab('namebooker'),
                   'name'     => 'name',
                   'field'    => 'entry.name',
-                  'value'    => ' ',
                   'placeholder' => 'Bitte deinen Namen angeben',
                   'required' => true,
                   'disabled' => $disabled);
