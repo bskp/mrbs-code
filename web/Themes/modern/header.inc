@@ -83,7 +83,7 @@ function print_head($simple)
       var vocab = {};
       vocab["mrbs"] = "<?= get_vocab("mrbs") ?>";
 
-      
+
     </script>
 
   </head>
@@ -148,7 +148,7 @@ function print_header_site_info()
 
   <a class="navbar-brand column" href="<?= $mrbs_company_url ?>">
     <?php if (isset($mrbs_company)) : ?>
-      <?= htmlspecialchars($mrbs_company) ?><br>
+      <?= htmlspecialchars($mrbs_company) ?>
     <?php endif; ?>
 
     <?= get_vocab('mrbs') ?>
@@ -158,7 +158,7 @@ function print_header_site_info()
 
 function print_menu_items($context)
 {
-  global $disable_menu_items_for_non_admins, 
+  global $disable_menu_items_for_non_admins,
     $mrbs_company_more_info, $kiosk_mode_enabled,
     $auth;
 
@@ -169,17 +169,17 @@ function print_menu_items($context)
     'report' => 'report.php',
     'import' => 'import.php',
     'rooms'  => 'admin.php'
-  ); 
-  
+  );
+
   if ($auth['type'] == 'db')
   {
     $menu_items['user_list'] = 'edit_users.php';
   }
-  
+
   if ($kiosk_mode_enabled)
   {
     $menu_items['kiosk'] = 'kiosk.php';
-  } 
+  }
   ?>
 
   <ul class="navbar-nav ml-auto" style="margin-left: auto !important;">
@@ -202,13 +202,13 @@ function print_menu_items($context)
     <?php endif; ?>
   </ul>
 
-  <?php 
+  <?php
   if(!$kiosk_mode_active) {
     print_goto_date($context);
     print_search($context);
     print_outstanding($query);
     print_edit_profile($context);
-    
+
     if (!$context['omit_login']) {
       print_logonoff_button();
     }
@@ -315,7 +315,7 @@ function print_search($context)
       'month' => $context['month'],
       'day'   => $context['day']
     ));
-    
+
   if (!empty($context['area'])) {
     $form->addHiddenInput('area', $context['area']);
   }

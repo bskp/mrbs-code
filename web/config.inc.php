@@ -84,15 +84,16 @@ $db_persist = false;
 
 // Default settings
 
-$mrbs_company = "Quartierwerkstatt Viktoria";   // This line must always be uncommented ($mrbs_company is used in various places)
+$mrbs_company = "QWV";   // This line must always be uncommented ($mrbs_company is used in various places)
 //$custom_css_url = 'css/custom.css';
 $weekstarts = 1;
 $style_weekends = true;
 $kiosk_mode_enabled = true;
 $theme = "modern";
 $default_view = "week";
+$view_week_number = true;
 
 // Settings from MRBS-modern theme
 
-$disable_menu_items_for_non_admins = ["kiosk", "user_list"];
+$disable_menu_items_for_non_admins = ["kiosk", "user_list", "rooms"];
 $enable_pwa = True;
