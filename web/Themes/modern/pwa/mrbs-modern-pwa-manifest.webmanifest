@@ -1,0 +1,15 @@
+{
+    "background_color": "white",
+    "description": "@@description@@",
+    "display": "standalone",
+    "icons": [
+      {
+        "src": "@@icon.src@@",
+        "sizes": "512x512",
+        "type": "image/png"
+      }
+    ],
+    "name": "@@name@@",
+    "short_name": "@@short_name@@",
+    "start_url": "/mrbs-modern-pwa-index.html"
+  }
