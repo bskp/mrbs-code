@@ -147,6 +147,9 @@ function inputToButton(inputElement, innerHTML, extraAttributes = "") {
     if (inputElement.onclick) {
         extraAttributes = `onclick="` + inputElement.onclick.toString().match(/function[^{]+\{([\s\S]*)\}$/)[1] + `" ` + extraAttributes
     }
+    if (inputElement.disabled) {
+      extraAttributes = 'disabled="disabled" ' + extraAttributes
+    }
     return `
     <button type="` + inputElement.type + `" class="` + inputElement.className + `" ` + extraAttributes + ` >
     ` + innerHTML + `
@@ -257,7 +260,7 @@ function patchMainPage() {
         element.className = "w-100 btn btn-sm btn-outline-secondary dropdown-toggle dropdown "
     })
 
-    // day selector 
+    // day selector
     patchElements(document.getElementsByClassName("arrow"), element => {
         patchElements(element.childNodes, function (childNode) {
             if (childNode.className === "prev")
@@ -406,7 +409,7 @@ function patchViewEntry() {
             var innerIcon = ""
             var className = ""
             console.log(form, count)
-        
+
             if (form.getAttribute("action") === "registration_handler.php" && form.parentElement.id === "registration") {
                 className = "btn btn-outline-success mr-2 mb-2"
                 innerIcon = "plus-circle"
@@ -418,7 +421,7 @@ function patchViewEntry() {
             else {
                 return
             }
-    
+
             patchChildsByTagName(form, "input", formInput => {
                 if (formInput.type === "submit") {
                     formInput.className = className
@@ -634,7 +637,7 @@ function patchSearch() {
         patchElements(form.childNodes, formInput => {
             if (formInput.type === "submit") {
                 formInput.className = className
-                if(placeIconRight)    
+                if(placeIconRight)
                     formInput.outerHTML = inputToButton(formInput, formInput.value + "<span class=\"ml-2\" data-feather=\"" + innerIcon + "\"></span>")
                 else
                     formInput.outerHTML = inputToButton(formInput, "<span class=\"mr-2\" data-feather=\"" + innerIcon + "\"></span>" + formInput.value)
@@ -650,7 +653,7 @@ function patchEditUsers() {
     var editUsersForm = document.getElementById("form_edit_users")
     if(editUsersForm) {
         // remove back button
-        backButtons = 
+        backButtons =
         patchElements(document.getElementsByName("back_button"), backButton => {
             backButton.outerHTML = ""
         })
@@ -662,11 +665,11 @@ function patchEditUsers() {
 
         var update_button = document.getElementById("update_button")
         update_button.outerHTML = inputToButton(update_button, update_button.value, "name=\"" + update_button.name + "\" value=\"" + update_button.value + "\"")
-        
+
         patchElements(document.getElementsByName("delete_button"), deleteButton => {
             deleteButton.outerHTML = inputToButton(
-                deleteButton, 
-                deleteButton.value, 
+                deleteButton,
+                deleteButton.value,
                 "name=\"" + deleteButton.name + "\" value=\"" + deleteButton.value + "\""
                 )
         })
@@ -724,7 +727,7 @@ function patchDel() {
         var innerIcon = ""
         var className = ""
         console.log(form)
-    
+
         if (form.getAttribute("action") === "admin.php") {
             className = "btn btn-outline-success mr-2 mb-2"
             innerIcon = "x-circle"
@@ -838,7 +841,7 @@ function patchSiteStructure() {
             if (button.type === "submit") {
                 form.addEventListener("submit", e => {
                     button.innerHTML += ' <div class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></div>'
-                    
+
                     if (!button.value)
                         button.disabled = true
                 })

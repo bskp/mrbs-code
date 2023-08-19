@@ -364,7 +364,7 @@ fieldset fieldset {
 }
 
 fieldset fieldset legend {
-  font-size: 0;  <?php // for IE: even if there is no legend text, IE allocates space ?>
+  //font-size: 0;  <?php // for IE: even if there is no legend text, IE allocates space ?>
 }
 
 label:not(.link)::after,
