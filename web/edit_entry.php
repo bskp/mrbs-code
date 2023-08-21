@@ -127,6 +127,10 @@ function get_field_name($value, $disabled=false)
                   'required' => true,
                   'disabled' => $disabled);
 
+  if ($value != '') {
+    $params['value'] = $value;
+  }
+
   return get_field_entry_input($params);
 }
 
@@ -1414,7 +1418,8 @@ else
   $edit_type     = "series";
   if ($default_name_display_name)
   {
-    $name = (isset($mrbs_user)) ? $mrbs_user->display_name : '';
+    // $name = (isset($mrbs_user)) ? $mrbs_user->display_name : '';
+    $name = '';  // always show empty username field for new entries
   }
   else
   {

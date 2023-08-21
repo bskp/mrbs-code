@@ -186,3 +186,12 @@ button.btn:disabled {
   pointer-events: auto !important;  /* in order to display tooltips */
   cursor: not-allowed;
 }
+
+td.new:hover a::after {
+  content: '+';
+  color: white;
+}
+
+td.new:hover a {
+  text-decoration: none;
+}

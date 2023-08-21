@@ -864,3 +864,4 @@ if ('serviceWorker' in navigator) {
 }
 
 patchSiteStructure()
+feather.replace()
