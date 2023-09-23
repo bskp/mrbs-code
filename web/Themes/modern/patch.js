@@ -190,6 +190,9 @@ function patchLoginPage() {
     for (i = 0; i < formLabels.length; i++)
         formLabels[i].className = "visually-hidden"
 
+    var form = document.getElementById("logon")
+    patchForm(form, true, )
+
     var formInputs = document.getElementsByTagName("input")
 
     for (i = 0; i < formInputs.length; i++)

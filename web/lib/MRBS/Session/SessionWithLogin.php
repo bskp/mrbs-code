@@ -8,6 +8,7 @@ use MRBS\Form\FieldDiv;
 use MRBS\Form\FieldInputPassword;
 use MRBS\Form\FieldInputSubmit;
 use MRBS\Form\FieldInputText;
+use MRBS\Form\FieldSelect;
 use MRBS\Form\Form;
 use function MRBS\auth;
 use function MRBS\get_form_var;
@@ -214,16 +215,20 @@ abstract class SessionWithLogin extends Session
 
     $placeholder = get_vocab($tag);
 
-    $field = new FieldInputText();
+    $field = new FieldSelect();
     $field->setLabel(get_vocab('user'))
           ->setLabelAttributes(array('title' => $placeholder))
-          ->setControlAttributes(array('id'           => 'username',
-                                       'name'         => 'username',
-                                       'placeholder'  => $placeholder,
-                                       'value'        => 'qwv',
-                                       'required'     => true,
-                                       'autofocus'    => true,
-                                       'autocomplete' => 'username'));
+          ->addSelectOptions(array(
+            'qwv' => 'QWV-Mitglied',
+            'admin' => 'Verwaltung'))
+          ->setControlAttributes(array('id' => 'username',
+            'name'         => 'username',
+            'placeholder'  => $placeholder,
+            'value'        => 'qwv',
+            'required'     => true,
+            'autofocus'    => true,
+            'autocomplete' => 'username'));
+
     $fieldset->addElement($field);
 
     // The password field
