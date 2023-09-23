@@ -79,8 +79,10 @@ $fields = db()->field_info(_tbl('entry'));
 $custom_fields = array();
 
 // Fill $edit_entry_field_order with not yet specified entries.
-$entry_fields = array('create_by', 'name', 'description', 'start_time', 'end_time', 'room_id',
-                      'type', 'confirmation_status', 'privacy_status');
+$entry_fields = is_user_admin()
+  ? array('create_by', 'name', 'description', 'start_time', 'end_time', 'room_id', 'type', 'confirmation_status', 'privacy_status')
+  : array('create_by', 'name', 'start_time', 'end_time', 'room_id');
+
 
 foreach ($entry_fields as $field)
 {
@@ -1171,7 +1173,7 @@ $mrbs_username = (isset($mrbs_user)) ? $mrbs_user->username : null;
 
 // You're only allowed to make repeat bookings if you're an admin
 // or else if $auth['only_admin_can_book_repeat'] is not set
-$repeats_allowed = is_book_admin() || empty($auth['only_admin_can_book_repeat']);
+$repeats_allowed = is_book_admin() || !empty($auth['only_admin_can_book_repeat']);
 // Similarly for multi-day
 $multiday_allowed = is_book_admin() || empty($auth['only_admin_can_book_multiday']);
 // Similarly for multiple room selection

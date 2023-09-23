@@ -99,3 +99,4 @@ $mail_settings['admin_lang'] = 'en';   // Default is 'en'.
 
 $disable_menu_items_for_non_admins = ["kiosk", "user_list", "rooms"];
 $enable_pwa = True;
+$auth['only_admin_can_book_repeat'] = true;
