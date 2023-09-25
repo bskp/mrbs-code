@@ -1,0 +1,15 @@
+{
+    "background_color": "white",
+    "description": "QWV Meeting Room Booking System",
+    "display": "standalone",
+    "icons": [
+      {
+        "src": "",
+        "sizes": "512x512",
+        "type": "image/png"
+      }
+    ],
+    "name": "QWV Meeting Room Booking System",
+    "short_name": "Meeting Room Booking System",
+    "start_url": "/mrbs-modern-pwa-index.html"
+  }
