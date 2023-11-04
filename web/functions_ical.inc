@@ -819,8 +819,8 @@ function create_ical_event(string $method, array $data, ?array $addresses=null, 
     }
   }
   $results[] = "SUMMARY:" . ical_escape_text($data['name']);
-  $results[] = "DESCRIPTION:" . ical_escape_text($data['description']);
-  $results[] = "LOCATION:" . ical_escape_text($data['area_name'] . $default_area_room_delimiter . $data['room_name']);
+  $results[] = "DESCRIPTION:" . ical_escape_text($data['description']?:"");
+  $results[] = "LOCATION:" . ical_escape_text($data['room_name'] . " (" . $data['area_name'] . ")");
   $results[] = "X-MRBS-TYPE:" . ical_escape_text(get_type_vocab($data['type']));
   $results[] = "SEQUENCE:" . $data['ical_sequence'];
   // If this is an individual member of a series then set the recurrence id

@@ -4,6 +4,7 @@ services:
         build:
             context: ..
             dockerfile: docker_app/php/Dockerfile
+        image: php-with-debugger
         ports:
             - "8080:80"
         volumes:
@@ -28,11 +29,5 @@ services:
             - persistent:/var/lib/mysql
         networks:
             - default
-    phpmyadmin:
-        image: phpmyadmin
-        links:
-            - db:db
-        ports:
-            - 8888:80
 volumes:
     persistent:
