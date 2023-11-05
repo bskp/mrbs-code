@@ -95,6 +95,17 @@ body {
   width: 100%;
 }
 
+.table_container table th {
+  text-align: right;
+}
+
+.table_container table th svg {
+  width: 1.4em;
+  vertical-align: baseline;
+  position: relative;
+  top: 0.3em;
+  margin-left: 0.1em;
+}
 
 .js_none {
   display: none;

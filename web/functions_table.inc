@@ -333,7 +333,6 @@ function room_cell_html(array $room, array $vars) : string
   $html .= '<a href="' . htmlspecialchars($link) . '"' .
            ' title = "' . htmlspecialchars($title) . '">';
   $html .= htmlspecialchars($room['room_name']);
-  // Put the capacity in a span to give flexibility in styling
   $html .= '<span class="capacity';
   if ($room['capacity'] == 0)
   {
@@ -342,6 +341,10 @@ function room_cell_html(array $room, array $vars) : string
   $html .= '">' . htmlspecialchars($room['capacity']);
   $html .= '</span>';
   $html .= '</a>';
+  if (!empty($room['custom_html'])) {
+    $html .= '<a target="_blank" href="' . htmlspecialchars($room['custom_html']) . '"' .
+      ' title = "Wiki"><span data-feather="external-link"></span></a>';
+  }
   $html .= "</th>\n";
   return $html;
 }

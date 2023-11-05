@@ -26,6 +26,7 @@ $mail_settings['admin_lang'] = 'en';   // Default is 'en'.
 
 $auth['only_admin_can_book_repeat'] = false;
 $auth['only_admin_can_select_multiroom'] = true;
+$auth['allow_custom_html'] = true;
 
 // Settings from MRBS-modern theme
 
