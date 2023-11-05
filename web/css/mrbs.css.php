@@ -935,13 +935,18 @@ table.dwm_main {
 
 .dwm_main a,
 .dwm_main .booked span.saving {
-  /* display: block; */
+  display: block;
   height: 100%;
-  /* width: 100%; */
+  width: 100%;
   min-height: inherit;
   word-break: break-all;
   word-break: break-word; <?php // Better for those browsers, eg webkit, that support it ?>
   hyphens: auto;
+}
+
+.dwm_main tbody th a {
+  display: inline-block;
+  width: auto;
 }
 
 .dwm_main .booked a,

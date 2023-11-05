@@ -116,6 +116,10 @@ body {
   margin-right: 0.5rem !important;
 }
 
+.mr-2:last-child {
+  margin-right: 0 !important;
+}
+
 .ml-2 {
   margin-left: 0.5rem !important;
 }
@@ -205,4 +209,10 @@ td.new:hover a::after {
 
 td.new:hover a {
   text-decoration: none;
+}
+
+@media (max-width: 991px) {
+  .container, .container-lg, .container-md, .container-sm {
+    max-width: 100% !important;
+  }
 }
