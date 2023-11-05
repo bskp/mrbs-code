@@ -1173,7 +1173,7 @@ $mrbs_username = (isset($mrbs_user)) ? $mrbs_user->username : null;
 
 // You're only allowed to make repeat bookings if you're an admin
 // or else if $auth['only_admin_can_book_repeat'] is not set
-$repeats_allowed = is_book_admin() || !empty($auth['only_admin_can_book_repeat']);
+$repeats_allowed = is_book_admin() || empty($auth['only_admin_can_book_repeat']);
 // Similarly for multi-day
 $multiday_allowed = is_book_admin() || empty($auth['only_admin_can_book_multiday']);
 // Similarly for multiple room selection

@@ -24,6 +24,9 @@ $view_week_number = true;
 
 $mail_settings['admin_lang'] = 'en';   // Default is 'en'.
 
+$auth['only_admin_can_book_repeat'] = false;
+$auth['only_admin_can_select_multiroom'] = true;
+
 // Settings from MRBS-modern theme
 
 $disable_menu_items_for_non_admins = ["kiosk", "user_list", "rooms"];
