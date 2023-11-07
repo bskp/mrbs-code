@@ -98,6 +98,8 @@ $mail_settings['admin_lang'] = 'en';   // Default is 'en'.
 $auth['only_admin_can_book_repeat'] = true;
 $auth['only_admin_can_select_multiroom'] = true;
 $auth['allow_custom_html'] = true;
+$refresh_rate = 3;
+$kiosk_default_mode = 'area';
 
 // Settings from MRBS-modern theme
 $disable_menu_items_for_non_admins = ["kiosk", "user_list", "rooms"];
