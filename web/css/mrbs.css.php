@@ -43,16 +43,18 @@ body {
 }
 
 .current {
-  color: <?php echo $highlight_font_color ?>;  <?php // used to highlight the current item ?>
+  color: <?php echo $highlight_font_color ?>;
+<?php // used to highlight the current item ?>
 }
 
 .error {
-  color: <?php echo $highlight_font_color ?>;  <?php // for error messages ?>
-  font-weight: bold;
+  color: <?php echo $highlight_font_color ?>;
+<?php // for error messages ?> font-weight: bold;
 }
 
 .warning {
-  color: <?php echo $highlight_font_color ?>;  <?php // for warning messages ?>
+  color: <?php echo $highlight_font_color ?>;
+<?php // for warning messages ?>
 }
 
 .note {
@@ -120,7 +122,8 @@ h2 {
 }
 
 .minicalendars {
-  padding-top: 0.8rem; <?php // same as margin-top on nav.main_calendar ?>
+  padding-top: 0.8rem;
+<?php // same as margin-top on nav.main_calendar ?>
 }
 
 .minicalendars.formed {
@@ -139,28 +142,29 @@ h2 {
 if ($display_mincals_above)
 {
   ?>
-  @media screen and (max-width: 80rem) and (min-width: 30rem) and (min-height: 55rem)  {
+@media screen and (max-width: 80rem) and (min-width: 30rem) and (min-height: 55rem) {
 
-    .index :not(.simple) + .contents {
-      flex-direction: column;
-    }
-
-    .minicalendars.formed {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      max-height: 18em;
-      overflow: hidden;
-      margin-right: 0;
-    }
-
-    .flatpickr-calendar.inline {
-      margin-left: 1.5em;
-      margin-right: 1.5em;
-    }
-
+  .index :not(.simple) + .contents {
+    flex-direction: column;
   }
-  <?php
+
+  .minicalendars.formed {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-height: 18em;
+    overflow: hidden;
+    margin-right: 0;
+  }
+
+  .flatpickr-calendar.inline {
+    margin-left: 1.5em;
+    margin-right: 1.5em;
+  }
+
+}
+
+<?php
 }
 
 // Make the inline minicalendars smaller than the pop-up calendars.
@@ -233,103 +237,109 @@ span.not_allowed {
   height: 100%;
 }
 
-/*
-tr:nth-child(odd) td.new,
-.all_rooms tr:nth-child(odd) td {
-  background-color: <?php echo $row_odd_color ?>;
-}
+@media (hover: none) {
+  tr:nth-child(odd) td.new,
+  .all_rooms tr:nth-child(odd) td {
+    background-color: <?php echo $row_odd_color ?>;
+  }
 
-.style_weekends tr:nth-child(odd) td.new.weekend,
-.style_weekends .all_rooms tr:nth-child(odd) td.weekend {
-  background-color: <?php echo $row_odd_color_weekend ?>;
-}
+  .style_weekends tr:nth-child(odd) td.new.weekend,
+  .style_weekends .all_rooms tr:nth-child(odd) td.weekend {
+    background-color: <?php echo $row_odd_color_weekend ?>;
+  }
 
-tr:nth-child(odd) td.new.holiday,
-.all_rooms tr:nth-child(odd) td.holiday {
-  background-color: <?php echo $row_odd_color_holiday ?>;
-}
+  tr:nth-child(odd) td.new.holiday,
+  .all_rooms tr:nth-child(odd) td.holiday {
+    background-color: <?php echo $row_odd_color_holiday ?>;
+  }
 
-.style_weekends tr:nth-child(odd) td.new.weekend.holiday,
-.style_weekends .all_rooms tr:nth-child(odd) td.weekend.holiday {
-  background-color: <?php echo $row_odd_color_weekend_holiday ?>;
-}
+  .style_weekends tr:nth-child(odd) td.new.weekend.holiday,
+  .style_weekends .all_rooms tr:nth-child(odd) td.weekend.holiday {
+    background-color: <?php echo $row_odd_color_weekend_holiday ?>;
+  }
 
-tr:nth-child(even) td.new,
-.all_rooms tr:nth-child(even) td {
-  background-color: <?php echo $row_even_color ?>;
-}
+  tr:nth-child(even) td.new,
+  .all_rooms tr:nth-child(even) td {
+    background-color: <?php echo $row_even_color ?>;
+  }
 
-.style_weekends tr:nth-child(even) td.new.weekend,
-.style_weekends .all_rooms tr:nth-child(even) td.weekend {
-  background-color: <?php echo $row_even_color_weekend ?>;
-}
+  .style_weekends tr:nth-child(even) td.new.weekend,
+  .style_weekends .all_rooms tr:nth-child(even) td.weekend {
+    background-color: <?php echo $row_even_color_weekend ?>;
+  }
 
-tr:nth-child(even) td.new.holiday,
-.all_rooms tr:nth-child(even) td.holiday {
-  background-color: <?php echo $row_even_color_holiday ?>;
-}
+  tr:nth-child(even) td.new.holiday,
+  .all_rooms tr:nth-child(even) td.holiday {
+    background-color: <?php echo $row_even_color_holiday ?>;
+  }
 
-.style_weekends tr:nth-child(even) td.new.weekend.holiday,
-.style_weekends .all_rooms tr:nth-child(even) td.weekend.holiday {
-  background-color: <?php echo $row_even_color_weekend_holiday ?>;
+  .style_weekends tr:nth-child(even) td.new.weekend.holiday,
+  .style_weekends .all_rooms tr:nth-child(even) td.weekend.holiday {
+    background-color: <?php echo $row_even_color_weekend_holiday ?>;
+  }
 }
-*/
 
 /*
 Background coloring is realized using virtual elements to avoid hover effects
 for columns (using, yet again, virtual elements on the <td>s)
 */
 
-table {
-  overflow: hidden;
-}
-.table_container {
-}
+@media (hover: hover) {
+  table {
+    overflow: hidden;
+  }
 
-.dwm_main thead th,
-.dwm_main tfoot th,
-.dwm_main tr {
-  background-color: transparent !important;
-}
+  .table_container {
+  }
 
-.dwm_main thead tr:after,
-.dwm_main tbody tr:after {
-  content: '';
-  display: block;
-  position: absolute;
-  height: 2em;
-  left: 0;
-  width: 100%;
-  z-index: -2;
-}
+  .dwm_main thead th,
+  .dwm_main tfoot th,
+  .dwm_main tr {
+    background-color: transparent !important;
+  }
 
-.dwm_main thead tr:after {
-  height: 3em !important;
-}
-.dwm_main tbody tr:nth-child(odd):after {
-  background-color: #efefef;
-}
-.dwm_main thead tr:after,
-.dwm_main tbody tr:nth-child(even):after {
-  background-color: white;
-}
+  .dwm_main thead tr:after,
+  .dwm_main tbody tr:after {
+    content: '';
+    display: block;
+    position: absolute;
+    height: 2em;
+    left: 0;
+    width: 100%;
+    z-index: -2;
+  }
 
-.dwm_main tbody td:hover::after {
-  background-color: rgb(25 118 211 / 14%);
-  content: '';
-  height: 10000px;
-  left: 0;
-  position: absolute;
-  top: -5000px;
-  width: 100%;
-  z-index: -1;
-}
+  .dwm_main thead tr:after {
+    height: 3em !important;
+  }
 
-table#week_main tbody tr:hover th a{
-  color: inherit !important;
-}
-table#week_main tbody tr:hover th {
-  background-color: inherit !important;
+  .dwm_main tbody tr:nth-child(odd):after {
+    background-color: #efefef;
+  }
+
+  .dwm_main thead tr:after,
+  .dwm_main tbody tr:nth-child(even):after {
+    background-color: white;
+  }
+
+  .dwm_main tbody td:hover::after {
+    background-color: rgb(25 118 211 / 14%);
+    content: '';
+    height: 10000px;
+    left: 0;
+    position: absolute;
+    top: -5000px;
+    width: 100%;
+    z-index: -1;
+  }
+
+  table#week_main tbody tr:hover th a {
+    color: inherit !important;
+  }
+
+  table#week_main tbody tr:hover th {
+    background-color: inherit !important;
+  }
 }
 
 @media (max-width: 1200px) {
@@ -338,13 +348,19 @@ table#week_main tbody tr:hover th {
     text-orientation: mixed;
     vertical-align: middle;
     text-align: end;
-    line-height: 0.8em;
     padding: 4px 0;
   }
 }
 
+@media (max-width: 600px) {
+  table#day_main.times-along-top thead th:not(:first-child) {
+    line-height: 1em;
+  }
+}
+
 .all_rooms td {
-  height: 100%; <?php // for Firefox ?>
+  height: 100%;
+<?php // for Firefox ?>
 }
 
 .dwm_main.all_rooms td a {
@@ -369,7 +385,7 @@ table#week_main tbody tr:hover th {
   box-sizing: border-box;
   min-width: 1px;
   width: 0;
-  border-right: 1px dotted  <?php echo $main_table_body_v_border_color ?>;
+  border-right: 1px dotted<?php echo $main_table_body_v_border_color ?>;
   white-space: nowrap;
   overflow: hidden;
   padding: 0.2em 0;
@@ -400,7 +416,8 @@ td, th {
 }
 
 td form {
-  margin: 0;  <?php // Prevent IE from displaying margins around forms in tables. ?>
+  margin: 0;
+<?php // Prevent IE from displaying margins around forms in tables. ?>
 }
 
 legend {
@@ -420,8 +437,9 @@ fieldset {
 }
 
 fieldset.admin {
-  width: 100%; padding: 0 1.0em 1.0em 1.0em;
-  border: 1px solid <?php echo $admin_table_border_color ?>;
+  width: 100%;
+  padding: 0 1.0em 1.0em 1.0em;
+  border: 1px solid<?php echo $admin_table_border_color ?>;
 }
 
 fieldset fieldset {
@@ -434,7 +452,8 @@ fieldset fieldset {
 }
 
 fieldset fieldset legend {
-  //font-size: 0;  <?php // for IE: even if there is no legend text, IE allocates space ?>
+/ / font-size: 0;
+<?php // for IE: even if there is no legend text, IE allocates space ?>
 }
 
 label:not(.link)::after,
@@ -445,8 +464,9 @@ label.link a::after,
 
 [lang="fr"] label:not(.link)::after,
 [lang="fr"] label.link a::after,
-[lang="fr"] .list td:first-child::after  {
-  content: '\0000a0:';  <?php // &nbsp; before the colon ?>
+[lang="fr"] .list td:first-child::after {
+  content: '\0000a0:';
+<?php // &nbsp; before the colon ?>
 }
 
 label:empty::after, .group label::after {
@@ -610,7 +630,8 @@ nav.main_calendar {
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   width: 100%;
-  margin-top: 0.8rem;  <?php // same as padding-top on minicalendars ?>
+  margin-top: 0.8rem;
+<?php // same as padding-top on minicalendars ?>
 }
 
 nav.main_calendar > nav {
@@ -675,7 +696,7 @@ nav.view div.container {
 
 nav.view a, nav.arrow a {
   background: linear-gradient(<?php echo implode(', ', $button_color_stops)?>);
-  border-right: thin solid <?php echo $body_background_color ?>;
+  border-right: thin solid<?php echo $body_background_color ?>;
   cursor: pointer;
   line-height: 1.8em;
   font-weight: normal;
@@ -707,24 +728,24 @@ nav.view a:focus,
 nav.arrow a:hover,
 nav.arrow a:focus {
   background: <?php echo $banner_back_color ?>;
-  box-shadow: inset 1px 1px <?php echo $button_inset_color ?>;
+  box-shadow: inset 1px 1px<?php echo $button_inset_color ?>;
   color: #ffffff;
   text-decoration: none;
 }
 
 nav a.prev::before {
-  content: '\00276e';  /* HEAVY LEFT-POINTING ANGLE QUOTATION MARK ORNAMENT */
+  content: '\00276e'; /* HEAVY LEFT-POINTING ANGLE QUOTATION MARK ORNAMENT */
 }
 
 nav a.next::after {
-  content: '\00276f';  /* HEAVY RIGHT-POINTING ANGLE QUOTATION MARK ORNAMENT */
+  content: '\00276f'; /* HEAVY RIGHT-POINTING ANGLE QUOTATION MARK ORNAMENT */
 }
 
 
 /* ------------ ADMIN.PHP ---------------------------*/
 
 .form_admin fieldset {
-  border: 1px solid <?php echo $admin_table_border_color ?>;
+  border: 1px solid<?php echo $admin_table_border_color ?>;
 }
 
 .admin h2 {
@@ -823,28 +844,26 @@ div.timeline {
   background-color: <?php echo $timeline_color ?>;
   position: absolute;
   width: 0;
-  <?php
-  // The JavaScript positions the top edge of the line at the current time, but intuitively we would expect
-  // the centre of the line to represent the current time, so we need to shift the line up by half of its height.
-  // Note that in some browsers, eg Firefox, translate(0, -50%) can make the line disappear completely if its height
-  // is only 1px - probably something to do with rounding - so make the line at least 2px high.
-  ?>
-  height: 2px; <?php // Do not set to less than 2px.  See above. ?>
-  transform: translate(0, -50%);
+<?php
+// The JavaScript positions the top edge of the line at the current time, but intuitively we would expect
+// the centre of the line to represent the current time, so we need to shift the line up by half of its height.
+// Note that in some browsers, eg Firefox, translate(0, -50%) can make the line disappear completely if its height
+// is only 1px - probably something to do with rounding - so make the line at least 2px high.
+?> height: 2px;
+<?php // Do not set to less than 2px.  See above. ?> transform: translate(0, -50%);
   z-index: 90;
   pointer-events: none;
 }
 
 div.timeline.times_along_top {
   height: 0;
-  <?php
-  // The JavaScript positions the left edge of the line at the current time, but intuitively we would expect
-  // the centre of the line to represent the current time, so we need to shift the line left by half of its width.
-  // Note that in some browsers, eg Firefox, translate(-50%, 0) can make the line disappear completely if its width
-  // is only 1px - probably something to do with rounding - so make the line at least 2px wide.
-  ?>
-  width: 2px; <?php // Do not set to less than 2px.  See above. ?>
-  transform: translate(-50%, 0);
+<?php
+// The JavaScript positions the left edge of the line at the current time, but intuitively we would expect
+// the centre of the line to represent the current time, so we need to shift the line left by half of its width.
+// Note that in some browsers, eg Firefox, translate(-50%, 0) can make the line disappear completely if its width
+// is only 1px - probably something to do with rounding - so make the line at least 2px wide.
+?> width: 2px;
+<?php // Do not set to less than 2px.  See above. ?> transform: translate(-50%, 0);
 }
 
 table.dwm_main {
@@ -878,11 +897,11 @@ table.dwm_main {
 
 .dwm_main td,
 .dwm_main tbody td + th {
-  border-right: <?php echo $main_table_cell_border_width ?>px solid <?php echo $main_table_body_v_border_color ?>;
+  border-right: <?php echo $main_table_cell_border_width ?>px solid<?php echo $main_table_body_v_border_color ?>;
 }
 
 .series a::before {
-  content: '\0021bb';  /* CLOCKWISE OPEN CIRCLE ARROW */
+  content: '\0021bb'; /* CLOCKWISE OPEN CIRCLE ARROW */
   margin-right: 0.5em;
 }
 
@@ -892,7 +911,7 @@ table.dwm_main {
 }
 
 .awaiting_approval.series a:before {
-  content: '?\002009\0021bb';  /* THIN SPACE, CLOCKWISE OPEN CIRCLE ARROW */
+  content: '?\002009\0021bb'; /* THIN SPACE, CLOCKWISE OPEN CIRCLE ARROW */
 }
 
 .awaiting_approval {
@@ -938,7 +957,8 @@ table.dwm_main {
   padding: 0.2em;
   color: <?php echo $standard_font_color ?>;
   background-color: #ffffff;
-  background-clip: padding-box; <?php // to keep Edge happy when using position: sticky ?>
+  background-clip: padding-box;
+<?php // to keep Edge happy when using position: sticky ?>
 }
 
 .style_weekends .dwm_main thead th.weekend,
@@ -958,15 +978,15 @@ table.dwm_main {
 
 .dwm_main th,
 .dwm_main td {
-  border-right: <?php echo $main_table_cell_border_width ?>px solid <?php echo $main_table_header_border_color ?>;
+  border-right: <?php echo $main_table_cell_border_width ?>px solid<?php echo $main_table_header_border_color ?>;
 }
 
 .dwm_main thead tr:last-child th {
-  border-bottom: 1px solid <?php echo $banner_back_color ?>;
+  border-bottom: 1px solid<?php echo $banner_back_color ?>;
 }
 
 .dwm_main tfoot tr:first-child th {
-  border-top: 1px solid <?php echo $banner_back_color ?>;
+  border-top: 1px solid<?php echo $banner_back_color ?>;
 }
 
 .dwm_main thead tr:first-child th:first-child {
@@ -999,8 +1019,8 @@ table.dwm_main {
   width: 100%;
   min-height: inherit;
   word-break: break-all;
-  word-break: break-word; <?php // Better for those browsers, eg webkit, that support it ?>
-  hyphens: auto;
+  word-break: break-word;
+<?php // Better for those browsers, eg webkit, that support it ?> hyphens: auto;
 }
 
 .dwm_main tbody th a {
@@ -1029,8 +1049,7 @@ table.dwm_main {
 // the wrapper.  The downside is that when resizing to make the booking larger the
 // table has to expand to accommodate the relative div.
 ?>
-@media all and (-ms-high-contrast: none), all and (-ms-high-contrast: active)
-{
+@media all and (-ms-high-contrast: none), all and (-ms-high-contrast: active) {
   .dwm_main .booking {
     position: relative;
   }
@@ -1038,8 +1057,8 @@ table.dwm_main {
 
 .dwm_main .booking {
   width: 100%;
-  height: 100%; <?php // overridden if .booked.multiply ?>
-  min-height: <?php echo $main_cell_height ?>;
+  height: 100%;
+<?php // overridden if .booked.multiply ?> min-height: <?php echo $main_cell_height ?>;
 }
 
 .dwm_main .booked.multiply a,
@@ -1048,7 +1067,8 @@ table.dwm_main {
 }
 
 .dwm_main .booked.multiply .booking {
-  height: <?php echo $main_cell_height ?>; <?php // overrides .dwm_main .booking { height: 100%; } ?>
+  height: <?php echo $main_cell_height ?>;
+<?php // overrides .dwm_main .booking { height: 100%; } ?>
 }
 
 .dwm_main .booked a {
@@ -1057,7 +1077,7 @@ table.dwm_main {
 
 .dwm_main .booked a,
 .all_rooms td a div:not(.free) {
-  border-bottom: 1px solid <?php echo $main_table_body_v_border_color ?>;
+  border-bottom: 1px solid<?php echo $main_table_body_v_border_color ?>;
 }
 
 .dwm_main .booked a.saving {
@@ -1072,7 +1092,8 @@ table.dwm_main {
 
 .dwm_main .booked span.saving::after,
 .loading::after {
-  content: '\002026'; <?php // HORIZONTAL ELLIPSIS ?>
+  content: '\002026';
+<?php // HORIZONTAL ELLIPSIS ?>
 }
 
 .dwm_main .booked span.saving,
@@ -1118,7 +1139,7 @@ table.dwm_main {
 
 .dwm_main th a:hover {
   color: <?php echo $anchor_hover_color_header ?>;
-  text-decoration:underline;
+  text-decoration: underline;
 }
 
 .dwm_main thead th.first_last,
@@ -1136,7 +1157,7 @@ table.dwm_main {
 }
 
 .dwm_main#month_main:not(.all_rooms) tbody tr:not(:first-child) td {
-  border-top:  <?php echo $main_table_cell_border_width ?>px solid <?php echo $main_table_body_v_border_color ?>;
+  border-top: <?php echo $main_table_cell_border_width ?>px solid<?php echo $main_table_body_v_border_color ?>;
 }
 
 .dwm_main#month_main:not(.all_rooms) td {
@@ -1210,21 +1231,22 @@ div.cell_container {
   position: relative;
   float: left;
   width: 100%;
-  <?php echo ($month_cell_scrolling ? 'height:' : 'min-height:') ?> 100px;
+<?php echo ($month_cell_scrolling ? 'height:' : 'min-height:') ?> 100px;
 }
 
 #month_main a.new_booking {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 10;  <?php // needs to be above the base, but below the date (monthday) ?>
+  z-index: 10;
+<?php // needs to be above the base, but below the date (monthday) ?>
 }
 
 div.cell_header {
   position: relative;
   width: 100%;
-  z-index: 20;  <?php // needs to be above the new booking anchor ?>
-  min-height: 20%;
+  z-index: 20;
+<?php // needs to be above the new booking anchor ?> min-height: 20%;
   height: 20%;
   max-height: 20%;
   overflow: hidden;
@@ -1261,8 +1283,8 @@ div.cell_header {
 <?php // contains the list of bookings ?>
 div.booking_list {
   position: relative;
-  z-index: 20;  <?php // needs to be above new_booking ?>
-  max-height: 80%;
+  z-index: 20;
+<?php // needs to be above new_booking ?> max-height: 80%;
   font-size: x-small;
   overflow: <?php echo ($month_cell_scrolling ? 'auto' : 'visible') ?>;
 }
@@ -1286,11 +1308,12 @@ div.both {
 if ($clipped_month)
 {
   ?>
-  .booking_list div {
-    height: 1.3em;
-    max-height: 1.3em;
-  }
-  <?php
+.booking_list div {
+  height: 1.3em;
+  max-height: 1.3em;
+}
+
+<?php
 }
 ?>
 
@@ -1567,7 +1590,6 @@ div#del_room_confirm {
 }
 
 
-
 /* ------ EDIT_AREA.PHP AND EDIT_ROOM.PHP ----------*/
 
 #book_ahead_periods_note span {
@@ -1588,14 +1610,14 @@ div#div_custom_html {
 
 .js .delete_period {
   display: inline-block;
-  visibility: hidden; <?php // gets switched on by JavaScript ?>
-  padding: 0 1em;
+  visibility: hidden;
+<?php // gets switched on by JavaScript ?> padding: 0 1em;
   opacity: 0.7;
 }
 
 .delete_period::after {
-  content: '\002718';  <?php // cross ?>
-  color: red;
+  content: '\002718';
+<?php // cross ?> color: red;
 }
 
 .delete_period:hover {
@@ -1617,7 +1639,7 @@ div#div_custom_html {
 <?php // The standard form ?>
 
 .standard {
-  float:left;
+  float: left;
   margin-top: 2.0em;
 }
 
@@ -1671,7 +1693,7 @@ div#div_custom_html {
   padding: 1em 0;
 }
 
-.standard fieldset fieldset legend{
+.standard fieldset fieldset legend {
   font-size: small;
   font-style: italic;
   font-weight: normal;
@@ -1709,7 +1731,8 @@ div#div_custom_html {
 .standard input[type="search"],
 .standard input[type="url"],
 .standard textarea {
-  width: 17rem;  <?php // Use rem not em because fonts may be different ?>
+  width: 17rem;
+<?php // Use rem not em because fonts may be different ?>
 }
 
 .standard input[type="text"].short {
@@ -1828,8 +1851,8 @@ div#div_custom_html {
   margin-right: 1em;
 }
 
-div#rep_type div.long{
-  border-right: 1px solid <?php echo $site_faq_entry_border_color ?>;
+div#rep_type div.long {
+  border-right: 1px solid<?php echo $site_faq_entry_border_color ?>;
   padding-right: 1em;
 }
 
@@ -1848,7 +1871,7 @@ fieldset.rep_type_details fieldset {
 
 fieldset#rep_info,
 fieldset#booking_controls {
-  border-top: 1px solid <?php echo $site_faq_entry_border_color ?>;
+  border-top: 1px solid<?php echo $site_faq_entry_border_color ?>;
   border-radius: 0;
   padding-top: 0.7em;
 }
@@ -1875,8 +1898,8 @@ div#checks span {
 }
 
 .good::after {
-  content: '\002714';  <?php // checkmark ?>
-  color: green;
+  content: '\002714';
+<?php // checkmark ?> color: green;
 }
 
 .notice::after {
@@ -1886,8 +1909,8 @@ div#checks span {
 }
 
 .bad::after {
-  content: '\002718';  <?php // cross ?>
-  color: red;
+  content: '\002718';
+<?php // cross ?> color: red;
 }
 
 
@@ -2115,10 +2138,10 @@ form#show_my_entries input.link[type="submit"] {
     display: none;
   }
 
-  <?php
-  // Save room on the index page by not showing the "Goto" button.  However
-  // it's useful on other pages as a means of returning to the index page.
-  ?>
+<?php
+// Save room on the index page by not showing the "Goto" button.  However
+// it's useful on other pages as a means of returning to the index page.
+?>
   .index #form_nav input[type="submit"] {
     display: none;
   }
@@ -2156,9 +2179,9 @@ form#show_my_entries input.link[type="submit"] {
   color: <?php echo $color_key_font_color ?>;
   word-wrap: break-word;
   padding: 0.3em;
-  margin: -1px 0 0 -1px; <?php // to collapse the borders ?>
-  font-weight: bold;
-  border: <?php echo $main_table_cell_border_width ?>px solid <?php echo $main_table_body_h_border_color ?>
+  margin: -1px 0 0 -1px;
+<?php // to collapse the borders ?> font-weight: bold;
+  border: <?php echo $main_table_cell_border_width ?>px solid<?php echo $main_table_body_h_border_color ?>
 }
 
 @supports (display: grid) {
@@ -2166,7 +2189,6 @@ form#show_my_entries input.link[type="submit"] {
     width: auto;
   }
 }
-
 
 
 header input[type="search"] {
@@ -2214,7 +2236,7 @@ table.details.has_caption {
 /* ------------ IMPORT.PHP ------------------------*/
 
 div.problem_report {
-  border-bottom: 1px solid <?php echo $site_faq_entry_border_color ?>;
+  border-bottom: 1px solid<?php echo $site_faq_entry_border_color ?>;
   margin-top: 1em;
 }
 
@@ -2414,7 +2436,7 @@ button#delete_button {
   left: 50%;
   z-index: 100;
   transform: translate(-50%, -50%);
-  box-shadow:0 0 0 max(100vh, 100vw) rgba(0,0,0,0.6);
+  box-shadow: 0 0 0 max(100vh, 100vw) rgba(0, 0, 0, 0.6);
   width: 20rem;
   max-width: 80%;
   text-align: center;
@@ -2483,7 +2505,7 @@ div#site_faq_body {
 }
 
 #site_faq_body h4 {
-  border-top: 1px solid <?php echo $site_faq_entry_border_color ?>;
+  border-top: 1px solid<?php echo $site_faq_entry_border_color ?>;
   padding-top: 0.5em;
   margin-top: 0;
 }
@@ -2685,7 +2707,7 @@ table.dataTable.order-column.stripe tbody tr.odd > .sorting_3 {
 }
 
 table.dataTable.display tbody tr.even > .sorting_1,
-table.dataTable.order-column.stripe tbody tr.even > .sorting_1  {
+table.dataTable.order-column.stripe tbody tr.even > .sorting_1 {
   background-color: #EAEBFF;
 }
 
@@ -2724,10 +2746,24 @@ a.dt-button {
   padding-right: 20px;
 }
 
-#check_tabs {border:0}
-div#check_tabs {background-image: none}
-.edit_entry #ui-tab-dialog-close {position:absolute; right:0; top:23px}
-.edit_entry #ui-tab-dialog-close a {float:none; padding:0}
+#check_tabs {
+  border: 0
+}
+
+div#check_tabs {
+  background-image: none
+}
+
+.edit_entry #ui-tab-dialog-close {
+  position: absolute;
+  right: 0;
+  top: 23px
+}
+
+.edit_entry #ui-tab-dialog-close a {
+  float: none;
+  padding: 0
+}
 
 
 .ui-dialog {
@@ -2763,17 +2799,17 @@ div#check_tabs {background-image: none}
 .flatpickr-day.selected.startRange + .endRange,
 .flatpickr-day.startRange.startRange + .endRange,
 .flatpickr-day.endRange.startRange + .endRange {
-  -webkit-box-shadow: -10px 0 0 <?php echo $flatpickr_highlight_color ?>;
-  box-shadow: -10px 0 0 <?php echo $flatpickr_highlight_color ?>;
+  -webkit-box-shadow: -10px 0 0<?php echo $flatpickr_highlight_color ?>;
+  box-shadow: -10px 0 0<?php echo $flatpickr_highlight_color ?>;
 }
 
 .flatpickr-day.week.selected {
-  -webkit-box-shadow:-5px 0 0 <?php echo $flatpickr_highlight_color ?>, 5px 0 0 <?php echo $flatpickr_highlight_color ?>;
-  box-shadow:-5px 0 0 <?php echo $flatpickr_highlight_color ?>, 5px 0 0 <?php echo $flatpickr_highlight_color ?>;
+  -webkit-box-shadow: -5px 0 0 <?php echo $flatpickr_highlight_color ?>, 5px 0 0<?php echo $flatpickr_highlight_color ?>;
+  box-shadow: -5px 0 0 <?php echo $flatpickr_highlight_color ?>, 5px 0 0<?php echo $flatpickr_highlight_color ?>;
 }
 
 .flatpickr-day.mrbs-hidden {
-  color: rgba(57,57,57,0.1);
+  color: rgba(57, 57, 57, 0.1);
 }
 
 <?php
@@ -2781,7 +2817,7 @@ div#check_tabs {background-image: none}
 // See https://github.com/flatpickr/flatpickr/issues/1300
 ?>
 .flatpickr-calendar, .flatpickr-days {
-    width: auto !important;
+  width: auto !important;
 }
 
 h2.date.loading,

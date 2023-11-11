@@ -128,7 +128,7 @@ function patchFormElement(formElement, depth = 0) {
         formElement.className = "form-select"
     else if (formElement.nodeName === "DIV") {
         patchElements(formElement.childNodes, childElement => patchFormElement(childElement, depth + 1))
-        formElement.className = "row ms-1 mr-0"
+        formElement.className = "row mr-0"
         formElement.setAttribute("width", "100%")
     }
 

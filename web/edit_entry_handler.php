@@ -818,6 +818,8 @@ $just_check = $is_ajax && !$commit;
 $this_id = (isset($id)) ? $id : null;
 $send_mail = ($no_mail) ? false : need_to_send_mail();
 
+setcookie('booker', $name, time()+60*60*24*90);
+
 try
 {
   // Wrap the editing process in a transaction, because we'll want to roll back the edit if the

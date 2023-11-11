@@ -129,6 +129,10 @@ function get_field_name($value, $disabled=false)
                   'required' => true,
                   'disabled' => $disabled);
 
+  if (isset($_COOKIE['booker'])) {
+    $params['value'] = $_COOKIE['booker'];
+  }
+
   if ($value != '') {
     $params['value'] = $value;
   }
