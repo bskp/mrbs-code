@@ -1,5 +1,25 @@
+Customized MRBS for _Quartierwerkstatt Viktoria_
+============================================
+
+This is a rather hacky customization of _Meeting Room Booking System_ for
+the needs of [Quartierwerkstatt Viktoria](https://www.quartierwerkstatt-viktoria.ch/) in Bern.
+
+Key modifications:
+
+- [x] Simpler booking form by removing many fields for non-admin users
+  (no description, confirmation status or privacy status)
+- [x] Remembers the user's name used for the previous booking using a cookie
+- [x] Added endpoint providing a filterable `.ical` calendar containing all bookings
+- [x] Login using dropdown since we only need one "User" and one "Admin"
+- [x] Hack to use a room's "additional HTML" as a link to an external website
+  (we use this to provide deep links to our Wiki)
+- [x] Vertical time labels on the day overview table (for small screens)
+
+***
+
 Meeting Room Booking System
-http://mrbs.sourceforge.net/
+===
+http://mrbs.sourceforge.net
 -------------------------------
 
 The Meeting Room Booking System (MRBS) is a PHP-based application for
