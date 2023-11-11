@@ -233,6 +233,7 @@ span.not_allowed {
   height: 100%;
 }
 
+/*
 tr:nth-child(odd) td.new,
 .all_rooms tr:nth-child(odd) td {
   background-color: <?php echo $row_odd_color ?>;
@@ -271,6 +272,75 @@ tr:nth-child(even) td.new.holiday,
 .style_weekends tr:nth-child(even) td.new.weekend.holiday,
 .style_weekends .all_rooms tr:nth-child(even) td.weekend.holiday {
   background-color: <?php echo $row_even_color_weekend_holiday ?>;
+}
+*/
+
+/*
+Background coloring is realized using virtual elements to avoid hover effects
+for columns (using, yet again, virtual elements on the <td>s)
+*/
+
+table {
+  overflow: hidden;
+}
+.table_container {
+}
+
+.dwm_main thead th,
+.dwm_main tfoot th,
+.dwm_main tr {
+  background-color: transparent !important;
+}
+
+.dwm_main thead tr:after,
+.dwm_main tbody tr:after {
+  content: '';
+  display: block;
+  position: absolute;
+  height: 2em;
+  left: 0;
+  width: 100%;
+  z-index: -2;
+}
+
+.dwm_main thead tr:after {
+  height: 3em !important;
+}
+.dwm_main tbody tr:nth-child(odd):after {
+  background-color: #efefef;
+}
+.dwm_main thead tr:after,
+.dwm_main tbody tr:nth-child(even):after {
+  background-color: white;
+}
+
+.dwm_main tbody td:hover::after {
+  background-color: rgb(25 118 211 / 14%);
+  content: '';
+  height: 10000px;
+  left: 0;
+  position: absolute;
+  top: -5000px;
+  width: 100%;
+  z-index: -1;
+}
+
+table#week_main tbody tr:hover th a{
+  color: inherit !important;
+}
+table#week_main tbody tr:hover th {
+  background-color: inherit !important;
+}
+
+@media (max-width: 1200px) {
+  table#day_main.times-along-top thead th:not(:first-child) {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    vertical-align: middle;
+    text-align: end;
+    line-height: 0.8em;
+    padding: 4px 0;
+  }
 }
 
 .all_rooms td {
