@@ -818,7 +818,13 @@ function create_ical_event(string $method, array $data, ?array $addresses=null, 
                    create_exdate_list($data['skip_list']);
     }
   }
-  $results[] = "SUMMARY:" . ical_escape_text($data['name']);
+  if (strpos($data['room_name'], ", ") !== false) {
+    // Assume it's a multi-room booking event.
+    $results[] = "SUMMARY:" . ical_escape_text($data['name']);
+  } else {
+    $results[] = "SUMMARY:" . ical_escape_text($data['room_name']. ": " . $data['name']);
+  }
+
   $results[] = "DESCRIPTION:" . ical_escape_text($data['description']?:"");
   $results[] = "LOCATION:" . ical_escape_text($data['room_name'] . " (" . $data['area_name'] . ")");
   $results[] = "X-MRBS-TYPE:" . ical_escape_text(get_type_vocab($data['type']));
@@ -1005,6 +1011,7 @@ function export_icalendar(DBStatement $res, bool $keep_private, int $export_end=
   // of the last repeat id we've seen
   $ical_events = array();
   $n_rows = $res->count();
+  $previous_row = null;
 
   for ($i=0; (false !== ($row = $res->next_row_keyed())); $i++)
   {
@@ -1012,7 +1019,15 @@ function export_icalendar(DBStatement $res, bool $keep_private, int $export_end=
     // If this is an individual entry, then construct an event
     if (!isset($row['rep_type']) || ($row['rep_type'] == RepeatRule::NONE))
     {
+      // If the previous entry has the same timestamp and creator, we assume these two entries to belong to the same
+      // multi-room booking. Consequently, the previous ical Event is removed from the list and it's room information is
+      // prepended to the current row's room information.
+      if ($row['timestamp'] == $previous_row['timestamp'] and $row['create_by'] == $previous_row['create_by']) {
+        array_pop($ical_events);
+        $row['room_name'] = $previous_row['room_name'] . ", " . $row['room_name'];
+      }
       $ical_events[] = create_ical_event($method, $row);
+      $previous_row = $row;
     }
 
     // Otherwise it's a series
