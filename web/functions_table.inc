@@ -13,6 +13,10 @@ function get_date_classes(DateTime $date) : array
   {
     $result[] = 'holiday';
   }
+  if ( (new DateTime())->getIsoDate() === $date->getISODate() )
+  {
+    $result[] = 'today';
+  }
 
   return $result;
 }

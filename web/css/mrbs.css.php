@@ -237,7 +237,7 @@ span.not_allowed {
   height: 100%;
 }
 
-@media (hover: none) {
+@media (hover: none), (max-width: 30rem) {
   tr:nth-child(odd) td.new,
   .all_rooms tr:nth-child(odd) td {
     background-color: <?php echo $row_odd_color ?>;
@@ -322,6 +322,7 @@ for columns (using, yet again, virtual elements on the <td>s)
     background-color: white;
   }
 
+  .dwm_main tbody tr:first-child td.weekend::after,
   .dwm_main tbody td:hover::after {
     background-color: rgb(25 118 211 / 14%);
     content: '';
@@ -331,6 +332,10 @@ for columns (using, yet again, virtual elements on the <td>s)
     top: -5000px;
     width: 100%;
     z-index: -1;
+  }
+
+  .dwm_main tbody tr:first-child td.weekend::after {
+    background-color: rgba(0, 0, 0, 0.04)
   }
 
   table#week_main tbody tr:hover th a {
@@ -974,6 +979,14 @@ table.dwm_main {
 .style_weekends .dwm_main thead th.weekend.holiday,
 .style_weekends .dwm_main tfoot th.weekend.holiday {
   background-color: <?php echo $row_even_color_weekend_holiday ?>
+}
+
+.dwm_main th.today {
+  background-color: #1976d2 !important;
+}
+
+.dwm_main th.today a{
+  color: white !important;
 }
 
 .dwm_main th,

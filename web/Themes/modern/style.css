@@ -20,9 +20,11 @@ body[data-simple="true"] {
   padding: 15px;
   margin: auto;
 }
+
 .form-signin .checkbox {
   font-weight: 400;
 }
+
 .form-signin .form-control {
   position: relative;
   box-sizing: border-box;
@@ -30,19 +32,23 @@ body[data-simple="true"] {
   padding: 10px;
   font-size: 16px;
 }
+
 .form-signin .form-control:focus {
   z-index: 2;
 }
+
 .form-signin input[type="email"] {
   margin-bottom: -1px;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
 }
+
 .form-signin input[type="password"] {
   margin-bottom: 10px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
+
 .form-label::after {
   display: none;
 }
@@ -53,8 +59,23 @@ body[data-simple="true"] {
 
 .container {
   text-align: left;
-  padding-top: 2rem !important;
-  padding-bottom: 2rem !important;
+}
+
+@media (max-width: 992px) {
+  /* remove container margin on small screens */
+  .container {
+    padding: 0;
+  }
+  h2, h3, h4 {
+    margin-left: 0.75rem;
+  }
+  .btn-toolbar {
+    margin-right: 0.75rem;
+  }
+
+  .container form#main {
+    margin: 0 0.75rem;
+  }
 }
 
 .footer {
@@ -110,6 +131,7 @@ body[data-simple="true"] {
   top: 0.3em;
   margin-left: 0.1em;
 }
+
 .table_container table th a:nth-child(2) {
   padding: 0;
   margin-top: -0.1em;
@@ -170,7 +192,7 @@ div.datatable_container {
 }
 
 td, th {
-	vertical-align: middle;
+  vertical-align: middle;
 }
 
 div#area_form, div#room_form {
@@ -190,7 +212,7 @@ div#area_form, div#room_form {
 }
 
 .nav-item > a {
-  color: rgba(255,255,255,.55);
+  color: rgba(255, 255, 255, .55);
   padding-right: .5rem;
   padding-left: .5rem;
   background: 0 0;
@@ -198,7 +220,7 @@ div#area_form, div#room_form {
   border-radius: .25rem;
   display: block;
   text-decoration: none;
-  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
+  transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
 }
 
 .qr-svg {
@@ -206,7 +228,7 @@ div#area_form, div#room_form {
 }
 
 button.btn:disabled {
-  pointer-events: auto !important;  /* in order to display tooltips */
+  pointer-events: auto !important; /* in order to display tooltips */
   cursor: not-allowed;
 }
 

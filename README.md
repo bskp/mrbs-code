@@ -13,7 +13,6 @@ Key modifications:
 - [x] Login using dropdown since we only need one "User" and one "Admin"
 - [x] Hack to use a room's "additional HTML" as a link to an external website
   (we use this to provide deep links to our Wiki)
-- [x] Vertical time labels on the day overview table (for small screens)
 - [x] iCal export: Merge multi-room-bookings to one single event
 - [ ] Full-page sized tables for week / day overviews with fixed headers
 
