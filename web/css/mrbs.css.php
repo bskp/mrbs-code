@@ -298,7 +298,7 @@ for columns (using, yet again, virtual elements on the <td>s)
     content: '';
     display: block;
     position: absolute;
-    height: 2em;
+    height: 2.2em;
     left: 0;
     width: 100%;
     z-index: -2;
@@ -326,6 +326,9 @@ for columns (using, yet again, virtual elements on the <td>s)
     top: -5000px;
     width: 100%;
     z-index: -1;
+  }
+  .dwm_main tbody tr:first-child td.weekend::after {
+    background-color: rgba(0, 0, 0, 0.05);
   }
 
   table#week_main tbody tr:hover th a {
@@ -960,6 +963,7 @@ table.dwm_main {
 
 .dwm_main th.today {
   background-color: #1976d2 !important;
+  position: relative;
 }
 
 .dwm_main th.today a {
