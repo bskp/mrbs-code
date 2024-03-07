@@ -202,10 +202,8 @@ if ($display_mincals_above)
 }
 
 .view_container {
-  -ms-flex-positive: 1;
   flex-grow: 1;
   width: 100%;
-  overflow-x: auto;
 }
 
 img {
@@ -289,9 +287,6 @@ for columns (using, yet again, virtual elements on the <td>s)
     overflow: hidden;
   }
 
-  .table_container {
-  }
-
   .dwm_main thead th,
   .dwm_main tfoot th,
   .dwm_main tr {
@@ -308,9 +303,8 @@ for columns (using, yet again, virtual elements on the <td>s)
     width: 100%;
     z-index: -2;
   }
-
   .dwm_main thead tr:after {
-    height: 3em !important;
+    height: 1.6em;
   }
 
   .dwm_main tbody tr:nth-child(odd):after {
@@ -334,26 +328,12 @@ for columns (using, yet again, virtual elements on the <td>s)
     z-index: -1;
   }
 
-  .dwm_main tbody tr:first-child td.weekend::after {
-    background-color: rgba(0, 0, 0, 0.04)
-  }
-
   table#week_main tbody tr:hover th a {
     color: inherit !important;
   }
 
   table#week_main tbody tr:hover th {
     background-color: inherit !important;
-  }
-}
-
-@media (max-width: 1200px) {
-  table#day_main.times-along-top thead th:not(:first-child) {
-    writing-mode: vertical-rl;
-    text-orientation: mixed;
-    vertical-align: middle;
-    text-align: end;
-    padding: 4px 0;
   }
 }
 
@@ -840,7 +820,6 @@ div#div_custom_html {
 }
 
 .table_container {
-  overflow: auto;
   position: relative;
   margin: 1em 0;
 }
@@ -872,8 +851,6 @@ div.timeline.times_along_top {
 }
 
 table.dwm_main {
-  float: left;
-  clear: both;
   width: 100%;
   height: 100%;
   border-spacing: 0;
@@ -985,7 +962,7 @@ table.dwm_main {
   background-color: #1976d2 !important;
 }
 
-.dwm_main th.today a{
+.dwm_main th.today a {
   color: white !important;
 }
 
@@ -1366,11 +1343,10 @@ tbody tr:nth-child(odd) .spaces {
   background: <?php echo $main_table_slot_private_type_color;?>;
 }
 
-.dwm_main thead th,
-.dwm_main th:first-child {
-  position: -webkit-sticky;
+.dwm_main thead{
   position: sticky;
-  z-index: 600;
+  top: calc(40px + 1em);
+  z-index: 100;
 }
 
 .dwm_main thead th {

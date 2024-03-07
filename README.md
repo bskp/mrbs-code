@@ -14,7 +14,8 @@ Key modifications:
 - [x] Hack to use a room's "additional HTML" as a link to an external website
   (we use this to provide deep links to our Wiki)
 - [x] iCal export: Merge multi-room-bookings to one single event
-- [ ] Full-page sized tables for week / day overviews with fixed headers
+- [x] Highlight today
+- [x] Full-page sized tables for week / day overviews with fixed headers
 
 ***
 
