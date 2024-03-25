@@ -94,6 +94,7 @@ $default_view = "week";
 $view_week_number = true;
 
 $mail_settings['admin_lang'] = 'en';   // Default is 'en'.
+$mail_settings['organizer'] = '';
 
 $auth['only_admin_can_book_repeat'] = true;
 $auth['only_admin_can_select_multiroom'] = true;
