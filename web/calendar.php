@@ -24,10 +24,11 @@ $sql .= " WHERE E.start_time < UNIX_TIMESTAMP(NOW() + INTERVAL 3 MONTH) AND E.en
 $sql .= " AND A.enable_periods=0";
 $sql_params = array();
 if(isset($_GET['room']) && !empty($_GET['room'])) {
-  $sql .= " AND R.room_name = ?";
+  $sql .= " AND (R.room_name = ? OR R.description = ?)";
+  $sql_params[] = $_GET['room'];
   $sql_params[] = $_GET['room'];
 }
-$sql .= " ORDER BY repeat_id IS NULL DESC, repeat_id, ical_recur_id";
+$sql .= " ORDER BY repeat_id IS NULL DESC, repeat_id, ical_recur_id, timestamp, create_by";
 
 $res = db()->query($sql, $sql_params);
 header('Content-Type: text/calendar; charset=utf-8');
