@@ -28,6 +28,10 @@ if(isset($_GET['room']) && !empty($_GET['room'])) {
   $sql_params[] = $_GET['room'];
   $sql_params[] = $_GET['room'];
 }
+if(isset($_GET['name']) && !empty($_GET['name'])) {
+  $sql .= " AND (E.name = ?)";
+  $sql_params[] = $_GET['name'];
+}
 $sql .= " ORDER BY repeat_id IS NULL DESC, repeat_id, ical_recur_id, timestamp, create_by";
 
 $res = db()->query($sql, $sql_params);
