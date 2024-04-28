@@ -125,10 +125,3 @@ if (isset($custom_js_url))
 {
   script($custom_js_url, true);
 }
-
-// Include the HTML5 Shiv so that elements such as <header> etc. can be styled in IE8 and below.
-// (Even though we don't support IE8 and below, we still need the HTML5 Shiv for styling the
-// page which says we don't support them!).
-echo "<!--[if lte IE 8]>\n";
-script(($debug) ? 'js/html5shiv.js' : 'js/html5shiv.min.js', true);
-echo "<![endif]-->\n";

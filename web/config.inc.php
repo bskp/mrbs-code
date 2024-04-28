@@ -42,7 +42,6 @@ require_once 'lib/autoload.inc';
 // The following line must be uncommented by removing the '//' at the beginning
 $timezone = "Europe/Berlin";
 
-
 /*******************
  * Database settings
  ******************/
@@ -90,8 +89,8 @@ $weekstarts = 1;
 $style_weekends = true;
 $kiosk_mode_enabled = true;
 $theme = "modern";
-$default_view = "week";
-$view_week_number = true;
+$default_view = "day";
+$view_week_number = false;
 
 $mail_settings['admin_lang'] = 'en';   // Default is 'en'.
 $mail_settings['organizer'] = '';

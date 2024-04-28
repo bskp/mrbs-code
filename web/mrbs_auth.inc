@@ -318,6 +318,12 @@ function getWritable($creator, $rooms=null, $all=true) : bool
     return true;
   }
 
+  // Hack: Allow any logged in user to edit other entries.
+  if (isset($mrbs_user))
+  {
+    return true;
+  }
+
   // Unauthorised access
   return false;
 }

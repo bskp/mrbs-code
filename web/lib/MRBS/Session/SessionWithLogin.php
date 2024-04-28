@@ -10,7 +10,9 @@ use MRBS\Form\FieldInputSubmit;
 use MRBS\Form\FieldInputText;
 use MRBS\Form\FieldSelect;
 use MRBS\Form\Form;
+use function MRBS\_tbl;
 use function MRBS\auth;
+use function MRBS\db;
 use function MRBS\get_form_var;
 use function MRBS\get_vocab;
 use function MRBS\location_header;
@@ -61,6 +63,16 @@ abstract class SessionWithLogin extends Session
     $action = multisite(this_page());
     $this->printLoginForm($action, $target_url, $returl, $error, $raw);
     exit;
+  }
+
+  public function getUsers() : ?array {
+    $users = array();
+    $res = db()->query('select * from ' . _tbl('users') . ' order by level, name desc', []);
+
+    for ($i=0; (false !== ($row = $res->next_row_keyed())); $i++) {
+      $users[$row['name']] = $row['display_name'];
+    }
+    return $users;
   }
 
 
@@ -215,12 +227,12 @@ abstract class SessionWithLogin extends Session
 
     $placeholder = get_vocab($tag);
 
+    $users = $this->getUsers();
+
     $field = new FieldSelect();
     $field->setLabel(get_vocab('user'))
           ->setLabelAttributes(array('title' => $placeholder))
-          ->addSelectOptions(array(
-            'qwv' => 'QWV-Mitglied',
-            'admin' => 'Verwaltung'))
+          ->addSelectOptions($users)
           ->setControlAttributes(array('id' => 'username',
             'name'         => 'username',
             'placeholder'  => $placeholder,
@@ -262,8 +274,6 @@ abstract class SessionWithLogin extends Session
     }
 
     $form->render();
-
-
 
     // Print footer and exit
     print_footer(true);

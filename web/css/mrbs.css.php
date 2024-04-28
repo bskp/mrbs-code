@@ -1347,12 +1347,6 @@ tbody tr:nth-child(odd) .spaces {
   background: <?php echo $main_table_slot_private_type_color;?>;
 }
 
-.dwm_main thead{
-  position: sticky;
-  top: calc(40px + 1em);
-  z-index: 100;
-}
-
 .dwm_main thead th {
   top: 0;
 }
