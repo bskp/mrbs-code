@@ -639,9 +639,10 @@ function get_field_custom(string $key, bool $disabled=false)
     $params = array('label'    => get_loc_field_name(_tbl('entry'), $key),
                     'name'     => VAR_PREFIX . $key,
                     'field'    => "entry.$key",
-                    'value'    => (isset($custom_fields[$key])) ? $custom_fields[$key] : NULL,
+                    'value'    => (isset($custom_fields[$key])) ? $custom_fields[$key] : $_COOKIE[$key],
                     'required' => !empty($is_mandatory_field["entry.$key"]),
                     'disabled' => $disabled);
+
     return get_field_entry_input($params);
   }
 

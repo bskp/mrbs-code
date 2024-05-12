@@ -104,3 +104,10 @@ $kiosk_default_mode = 'area';
 // Settings from MRBS-modern theme
 $disable_menu_items_for_non_admins = ["kiosk", "user_list", "rooms"];
 $enable_pwa = True;
+
+$edit_entry_field_order = ["name", "contact"];
+$vocab_override['de']['entry.contact'] = "Kontaktangabe (Emailadresse oder Telefon)";
+$is_mandatory_field['entry.contact'] = true;
+$is_private_field['entry.contact'] = true;
+
+

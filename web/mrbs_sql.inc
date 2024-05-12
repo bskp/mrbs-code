@@ -573,7 +573,7 @@ function mrbsCheckPolicy(array $booking, ?int $ignore=null, ?int $repignore=null
       }
     }
 
-    if ($max_create_ahead_enabled && $booking['create_by'] != 'kurse')
+    if ($max_create_ahead_enabled && $booking['create_by'] != 'kursplanung' && $booking['create_by'] != 'offene_werkstatt')
     {
       $max_create_ahead = adjust_ahead_seconds($max_create_ahead_secs);
       $edge = ($measure_max_to_start_time) ? $booking['start_time'] : $booking['end_time'];

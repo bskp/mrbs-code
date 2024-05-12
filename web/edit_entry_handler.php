@@ -793,6 +793,7 @@ foreach ($rooms as $room_id)
   foreach ($custom_fields as $key => $value)
   {
     $booking[$key] = $value;
+    setcookie($key, $value, time()+60*60*24*90);
   }
 
   // Set the various statuses as appropriate
