@@ -42,13 +42,22 @@ if(isset($_GET['max']) && !empty($_GET['max'])) {
 
 $res = db()->query($sql, $sql_params);
 
-$fmt = datefmt_create(
+$datetime_fmt = datefmt_create(
   'de-DE',
   IntlDateFormatter::FULL,
   IntlDateFormatter::FULL,
   'Europe/Zurich',
   IntlDateFormatter::GREGORIAN,
   'EEEE, d. LLLL H'
+);
+
+$hour_fmt = datefmt_create(
+  'de-DE',
+  IntlDateFormatter::FULL,
+  IntlDateFormatter::FULL,
+  'Europe/Zurich',
+  IntlDateFormatter::GREGORIAN,
+  'H'
 );
 
 if ($res->count() == 0) {
@@ -58,10 +67,8 @@ if ($res->count() == 0) {
 echo '<ul>';
 for ($i=0; (false !== ($row = $res->next_row_keyed())); $i++)
 {
-  //echo '<pre>'; print_r($row); echo '</pre>';
-  echo '<li>';
-  //echo '<strong>' . datefmt_format($fmt, $row['start_time']) . ' bis ' . gmdate('H:i', $row['end_time']) . '</strong> ' . $row['room_name'] . ' (' . $row['name'] . ')';
-  echo '<strong>' . datefmt_format($fmt, $row['start_time']) . '&ensp;–&ensp;' . gmdate('H', $row['end_time']) . ' Uhr </strong> ' . $row['room_name'];
+  echo '<li title="' . $row['room_name'] . '">';
+  echo '<strong>' . datefmt_format($datetime_fmt, $row['start_time']) . '&ensp;&mdash;&ensp;' . datefmt_format($hour_fmt, $row['end_time']) . ' Uhr </strong> ' . $row['name'];
   echo '</li>';
 }
 echo '</ul>';

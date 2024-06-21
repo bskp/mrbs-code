@@ -1465,7 +1465,7 @@ else
   {
     if (!isset($hour) || !isset($minute))
     {
-      $hour = $morningstarts;
+      $hour = date('H');
       $minute = $morningstarts_minutes;
     }
   }
