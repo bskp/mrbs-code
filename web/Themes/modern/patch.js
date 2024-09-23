@@ -267,16 +267,27 @@ function patchMainPage() {
     patchElements(document.getElementsByClassName("arrow"), element => {
         patchElements(element.childNodes, function (childNode) {
             if (childNode.className === "prev")
-                childNode.innerHTML = "<span data-feather=\"chevron-left\"></span>"
+                childNode.innerHTML = `<span data-feather="chevron-left"></span>`
             else if (childNode.className === "next")
-                childNode.innerHTML = "<span data-feather=\"chevron-right\"></span>"
+                childNode.innerHTML = `<span data-feather="chevron-right"></span>`
 
             childNode.className = "btn btn-sm btn-outline-secondary"
             //element.innerHTML = "<span aria-hidden=\"true\">&laquo;</span>"
         })
 
-        element.outerHTML = "<div class=\"calendar_day_selector btn-group col-auto mr-2 mb-2 mb-md-0\" role=\"group\">" + element.innerHTML + "</div>"
+        element.outerHTML = `<div class="calendar_day_selector btn-group col-auto mr-2 mb-2 mb-md-0" role="group">${element.innerHTML}</div>`
     })
+
+    document.onkeydown = e => {
+      switch (e.key) {
+        case "ArrowLeft":
+          document.getElementsByClassName("calendar_day_selector")[0].children[0].click();
+          return;
+        case "ArrowRight":
+          document.getElementsByClassName("calendar_day_selector")[0].children[2].click();
+          return;
+      }
+    }
 
     // view select
     patchElements(document.getElementsByClassName("view"), element => {
@@ -291,7 +302,7 @@ function patchMainPage() {
             //element.innerHTML = "<span aria-hidden=\"true\">&laquo;</span>"
         })
 
-        element.outerHTML = "<div class=\"calendar_view_selector btn-group col-auto col-md-0 mr-2 mb-2 mb-md-0\" role=\"group\">" + element.innerHTML + "</div>"
+        element.outerHTML = `<div class="calendar_view_selector btn-group col-auto col-md-0 mr-2 mb-2 mb-md-0" role="group">${element.innerHTML}</div>`
     })
 
     // scroll table
