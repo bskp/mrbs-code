@@ -76,6 +76,18 @@ function unpack_status(array &$data)
 }
 
 
+/** Return the ID of any room whose description contains "ganze Werkstatt".
+ * @return array
+ * @throws \Exception
+ */
+function get_global_room_ids() : array
+{
+  $sql = "SELECT id
+           FROM " . _tbl('room') . "
+           WHERE description LIKE '%ganze Werkstatt%'";
+  return db()->query_array($sql);
+}
+
 /** mrbsCheckFree()
  *
  * Check to see if the time period specified is free
@@ -96,17 +108,21 @@ function mrbsCheckFree(array $booking, ?int $ignore=null, ?int $repignore=null) 
 
   get_area_settings(get_area($room_id));
 
+  // Check collision with room to book as well as any "global rooms" locking all slots.
+  $colliding_room_ids = get_global_room_ids();
+  $colliding_room_ids[] = $room_id;
+
   // Select any meetings which overlap for this room:
   $sql = "SELECT E.id, name, start_time, end_time, create_by, status, room_name
             FROM " . _tbl('entry') . " E, " . _tbl('room') . " R
            WHERE E.room_id=R.id
              AND start_time < ?
              AND end_time > ?
-             AND E.room_id = ?";
+             AND E.room_id IN (" . implode(',', $colliding_room_ids) . ")";
 
   $sql_params = array($booking['end_time'],
-                      $booking['start_time'],
-                      $room_id);
+                      $booking['start_time']
+                      );
 
   if (isset($ignore))
   {
