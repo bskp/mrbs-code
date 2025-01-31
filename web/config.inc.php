@@ -64,7 +64,7 @@ $db_database = "qwv_reservation";
 // Database login user name:
 $db_login = "reservation";
 // Database login password:
-$db_password = 'Ro1tp8!26';
+$db_password = 'dummy-password';
 // Prefix for table names.  This will allow multiple installations where only
 // one database is available
 $db_tbl_prefix = "mrbs_";
