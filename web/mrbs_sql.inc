@@ -589,7 +589,7 @@ function mrbsCheckPolicy(array $booking, ?int $ignore=null, ?int $repignore=null
       }
     }
 
-    if ($max_create_ahead_enabled && !str_contains($room_details['description'], '#imvoraus'))
+    if ($max_create_ahead_enabled && !str_contains($room_details['description'], '#imvoraus') && !str_contains(strtolower($booking['name']), 'kurs'))
     {
       $max_create_ahead = adjust_ahead_seconds($max_create_ahead_secs);
       $edge = ($measure_max_to_start_time) ? $booking['start_time'] : $booking['end_time'];
