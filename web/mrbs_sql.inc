@@ -109,8 +109,12 @@ function mrbsCheckFree(array $booking, ?int $ignore=null, ?int $repignore=null) 
   get_area_settings(get_area($room_id));
 
   // Check collision with room to book as well as any "global rooms" locking all slots.
-  $colliding_room_ids = get_global_room_ids();
-  $colliding_room_ids[] = $room_id;
+  if (!is_user_admin()) {
+    $colliding_room_ids = get_global_room_ids();
+    $colliding_room_ids[] = $room_id;
+  } else {
+    $colliding_room_ids = array($room_id);
+  }
 
   // Select any meetings which overlap for this room:
   $sql = "SELECT E.id, name, start_time, end_time, create_by, status, room_name
